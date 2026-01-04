@@ -1,0 +1,240 @@
+/* main navigation */
+.main-navbar {
+  background-color: #ececec7c !important;
+}
+ 
+.navbar-brand {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #7748279d; 
+}
+.color {
+  font-weight: 500;
+  color: #774827 !important;
+  border: 1px solid #3b2e2475;
+  padding: 6px 16px;
+
+  border-radius: 10px;
+  border-width: 2px;
+  margin-right: 10px;
+  font-size: 15px;
+  transition: all 0.4s ease;
+}
+.color:hover {
+  background-color: #6f4e379d;
+  color: #fff !important;
+}
+ 
+.lang-switcher {
+  display: flex;
+  gap: 5px; 
+}
+.lang-switcher button {
+  border: 3px solid #291c1293;
+  background: transparent;
+  color: #2c0a0afd;
+  padding: 5px ;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+   font-weight: 500;
+}
+
+.lang-switcher button:hover {
+  background: #3109096e;
+  color: #fff;
+}
+
+.cart-icon {
+  margin-left: auto;
+}
+
+.cart-link {
+  font-size: 26px;
+  color: #472b17b0 !important;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 20%;
+  transition: all 0.3s ease;
+}
+
+.cart-link:hover {
+  background-color: rgba(111, 78, 55, 0.2);
+  color: #6f4e37 !important;
+}
+
+/* HEADER */
+.cta-section {
+    position: relative;
+  overflow: hidden;
+  min-height: 600px;
+}
+
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-overlay {
+    position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.39);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 80px;
+  color: #fff;
+  pointer-events: none;
+  
+}
+
+ 
+
+.site-title {
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  
+}
+
+.site-slogan {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+ 
+ 
+.cta-overlay {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 30px 40px;
+  text-align: center;
+  color: #fff;
+ 
+  border-radius: 20px;
+  max-width: 600px;
+}
+ 
+
+.cta-overlay h2 {
+  font-size: 34px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.cta-overlay p {
+   font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+    flex-wrap: wrap; 
+}
+
+ 
+.cta-btn {
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-btn.primary {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.cta-btn.primary:hover {
+ background: #f4f1ee;
+  transform: translateY(-2px);
+}
+
+.cta-btn.secondary {
+ background-color: #ffffff;
+  color: #000000;}
+
+.cta-btn.secondary:hover {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  transform: translateY(-2px);
+  
+}
+ /* main */
+.features {
+  background: #f4f1ee;
+  padding: 80px 20px;
+}
+
+.features-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  text-align: center;
+}
+
+.feature i {
+  font-size: 40px;
+  color: #6f4e37;
+  margin-bottom: 15px;
+}
+
+.feature h3 {
+  margin-bottom: 10px;
+}
+
+/* footer */
+.site-footer {
+ background: #2e2e2e;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  
+}
+
+.footer-brand {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* MOBILE   */
+@media (max-width: 600px) {
+  .site-title { font-size: 30px; }
+  .site-slogan { font-size: 16px; }
+  .cta-overlay { 
+    bottom: 40px; 
+    padding: 20px 25px; 
+    max-width: 90%; 
+  }
+}
+
+
+
+
+ 
+ 

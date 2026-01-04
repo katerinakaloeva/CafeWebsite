@@ -1,0 +1,102 @@
+.main-navbar{
+    background-color:#ececec7c  !important;
+}
+      
+  .navbar-brand{
+     font-family:Georgia, 'Times New Roman', Times, serif;  
+    font-size: 24px;
+    font-weight: 600;
+    color: #7748279d; /* coffee color */
+  }
+   .color{
+      
+   font-weight: 500;
+    color: #774827 !important;
+    border: 1px solid #3b2e2475;
+    padding: 6px 16px;
+    
+    border-radius: 10px;
+    border-width: 2px;
+    margin-right: 10px;
+    font-size: 15px;
+   transition: all 0.4s ease;
+ 
+   } 
+   .color:hover {
+    background-color: #6f4e379d;
+    color: #fff !important;
+}
+.cart-icon {
+    margin-left: auto;
+}
+
+.cart-link {
+  
+    font-size: 26px;
+    color: #472b17b0 !important;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 20%;
+    transition: all 0.3s ease;
+}
+
+.cart-link:hover {
+    background-color: rgba(111, 78, 55, 0.2);
+    color: #6f4e37 !important;
+}
+ body {
+    margin: 0;
+    padding: 0;
+}
+.about-section {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.589),
+            rgba(0, 0, 0, 0.637)
+        ),
+        url("/styles/images/istock-801396374.avif");
+        ;
+
+    background-size: cover;
+    background-position: center;
+    padding: 228px 20px;
+       
+}
+
+ 
+ 
+.content-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    color: #e2e2e2;
+   background: rgba(0, 0, 0, 0.274);
+    border-radius: 20px;
+   
+   
+    
+    
+}
+
+.section-title {
+    font-size: 45px;
+    margin-bottom: 20px;
+    color: #fffbfbea;
+}
+
+.section-text {
+    font-size: 20px;
+}
+.site-footer {
+    background-color: #2e2e2e;
+    color: white;
+    text-align: center;
+    padding: 12px ;
+    margin-top: 0;
+    
+}
+
+.footer-text {
+    margin: 0;
+    font-size: 14px;
+}
