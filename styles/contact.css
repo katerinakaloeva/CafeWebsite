@@ -1,46 +1,64 @@
-.main-navbar{
-    background-color:#ececec7c  !important;
+.main-navbar {
+  background-color: #ececec7c !important;
 }
-      
-  .navbar-brand{
-     font-family:Georgia, 'Times New Roman', Times, serif;  
-    font-size: 24px;
-    font-weight: 600;
-    color: #7748279d; /* coffee color */
-  }
-   .color{
-      
-   font-weight: 500;
-    color: #774827 !important;
-    border: 1px solid #3b2e2475;
-    padding: 6px 16px;
-    
-    border-radius: 10px;
-    border-width: 2px;
-    margin-right: 10px;
-    font-size: 15px;
-   transition: all 0.4s ease;
  
-   } 
-   .color:hover {
-    background-color: #6f4e379d;
-    color: #fff !important;
+.navbar-brand {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #7748279d; 
 }
+.color {
+  font-weight: 500;
+  color: #774827 !important;
+  border: 1px solid #3b2e2475;
+  padding: 6px 16px;
+
+  border-radius: 10px;
+  border-width: 2px;
+  margin-right: 10px;
+  font-size: 15px;
+  transition: all 0.4s ease;
+}
+.color:hover {
+  background-color: #6f4e379d;
+  color: #fff !important;
+}
+ 
+.lang-switcher {
+  display: flex;
+  gap: 5px; 
+}
+.lang-switcher button {
+  border: 3px solid #291c1293;
+  background: transparent;
+  color: #2c0a0afd;
+  padding: 5px ;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+   font-weight: 500;
+}
+
+.lang-switcher button:hover {
+  background: #3109096e;
+  color: #fff;
+}
+
 .cart-icon {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .cart-link {
-  
-    font-size: 26px;
-    color: #472b17b0 !important;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 20%;
-    transition: all 0.3s ease;
+  font-size: 26px;
+  color: #472b17b0 !important;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 20%;
+  transition: all 0.3s ease;
 }
 
 .cart-link:hover {
-    background-color: rgba(111, 78, 55, 0.2);
-    color: #6f4e37 !important;
+  background-color: rgba(111, 78, 55, 0.2);
+  color: #6f4e37 !important;
 }
