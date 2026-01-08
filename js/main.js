@@ -54,6 +54,21 @@ const translations = {
     menuFlavorDesc: "Blend Arabica & Costa Rica, έντονη καφεΐνη",
     menuDecafTitle: "Decaf",
     menuDecafDesc: "100% Arabica χωρίς καφεΐνη",
+    // contact
+    contactTitle: "Επικοινωνία",
+    contactSubtitle: "Είμαστε πάντα στη διάθεσή σας για οποιαδήποτε απορία",
+
+    contactInfoTitle: "Στοιχεία Επικοινωνίας",
+    contactAddress: "Οδός Μερώπης 12, 12345 Αθήνα",
+    contactPhone: "+30 210 123 4567",
+    contactEmail: "contact@dailycafe.gr",
+    contactHours: "Δευτέρα – Κυριακή: 07:00 – 22:00",
+
+    contactFormTitle: "Στείλτε μας μήνυμα",
+    contactName: "Ονοματεπώνυμο",
+    contactEmailPlaceholder: "Email",
+    contactMessage: "Το μήνυμά σας...",
+    contactSend: "Αποστολή",
 
 
 
@@ -112,17 +127,41 @@ const translations = {
     menuFlavorDesc: "Arabica & Costa Rica blend, high caffeine",
     menuDecafTitle: "Decaf",
     menuDecafDesc: "100% Arabica decaffeinated",
-  }
+    // contact
+    contactTitle: "Contact",
+    contactSubtitle: "We are always available for any questions",
 
-};
+    contactInfoTitle: "Contact Information",
+    contactAddress: "12 Meropis Street, 12345 Athens",
+    contactPhone: "+30 210 123 4567",
+    contactEmail: "contact@dailycafe.gr",
+    contactHours: "Monday – Sunday: 07:00 – 22:00",
+
+    contactFormTitle: "Send us a message",
+    contactName: "Full Name",
+    contactEmailPlaceholder: "Email",
+    contactMessage: "Your message...",
+    contactSend: "Send",
+  }
+}
+
+
 
 
 
 function setLanguage(lang) {
-  const dataKey = document.querySelectorAll("[data-key]")
-  dataKey.forEach(el => {
+  const elements = document.querySelectorAll("[data-key]")
+  elements.forEach(el => {
     const key = el.dataset.key;
-    el.textContent = translations[lang][key];
+    const translation = translations[lang][key];
+
+    if (!translation) return;
+
+    if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+      el.placeholder = translation;
+    } else {
+      el.textContent = translation;
+    }
 
   });
 };
@@ -155,14 +194,97 @@ langEn.addEventListener('click', () => {
 })
 
 
+let cart = [];
+
+
+const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+
+addToCartButtons.forEach(button => {
+  button.addEventListener("click", () => {
+
+
+    const menuItem = button.closest(".menu-item");
+
+
+    const name = menuItem.querySelector("h3").innerText;
+    const priceText = menuItem.querySelector(".price").innerText;
+    const qty = parseInt(menuItem.querySelector(".qty").value);
+
+    const price = parseFloat(priceText.replace("€", "").replace(",", "."));
+
+
+    const product = {
+      name: name,
+      price: price,
+      qty: qty
+    };
+
+
+    addToCart(product);
+    let saveTotal = getCartTotal(cart)
+    const cartTotalEl = document.getElementById("cart-total");
+
+    cartTotalEl.textContent = saveTotal.toFixed(2) + "€";
+
+
+  });
+});
+
+function addToCart(product) {
+  const existingProduct = cart.find(item => item.name === product.name)
+  if (existingProduct) {
+    existingProduct.qty += product.qty
+
+  } else {
+    cart.push(product)
+
+  }
+
+}
+
+function getCartTotal(cart) {
+  let total = 0
+  for (let i = 0; i < cart.length; i++) {
+    let totalCost = cart[i].price * cart[i].qty
+    total += totalCost
 
 
 
 
+  }
+  return total
+
+
+
+}
 
 
 
 
+const cart = [] 
+let total = 0  
+ const addToCartButtons = document.querySelectorAll('.add-to-cart') 
+ addToCartButtons.forEach(button => { button.addEventListener('click', () =>  {
+   const menu = button.closest('.menu-item') 
+   const name = menu.querySelector('h3').innerHTML 
+
+   const priceText = menu.querySelector('.price').innerHTML
+    const qty = parseInt(menu.querySelector('.qty').value) 
+
+    const number = priceText.replace('€', '').replace(',', '.') 
+    const price = parseFloat(number) 
+    const product =
+     { name: name, 
+      price: price, 
+      qty: qty } 
+
+    cart.push(product) 
+    
+    cart.forEach(product => { total += product.price * product.qty }) 
+    document.getElementById('cart-total').innerText = total.toFixed(2) + '€' 
+  }) 
+  })
 
 
 
