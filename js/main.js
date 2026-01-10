@@ -194,11 +194,28 @@ langEn.addEventListener('click', () => {
 })
 
 
+
+
+
+// menu
+
+ 
+
+
+
+
 let cart = [];
+document.addEventListener("DOMContentLoaded", () => {
 
 
+ 
+const saveMenu=localStorage.getItem('cart')
+if(saveMenu){
+   cart = JSON.parse(saveMenu);
+}
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
-
+  const cartTotalEl = document.querySelector("#cart-total");
+  cartTotalEl.textContent = getCartTotal(cart).toFixed(2) + "€";
 
 addToCartButtons.forEach(button => {
   button.addEventListener("click", () => {
@@ -221,16 +238,16 @@ addToCartButtons.forEach(button => {
     };
 
 
-    addToCart(product);
+ addToCart(product);
     let saveTotal = getCartTotal(cart)
-    const cartTotalEl = document.getElementById("cart-total");
+  
 
     cartTotalEl.textContent = saveTotal.toFixed(2) + "€";
 
 
   });
 });
-
+})
 function addToCart(product) {
   const existingProduct = cart.find(item => item.name === product.name)
   if (existingProduct) {
@@ -240,6 +257,9 @@ function addToCart(product) {
     cart.push(product)
 
   }
+
+const chCart= JSON.stringify(cart)
+  localStorage.setItem('cart',chCart)
 
 }
 
@@ -258,34 +278,4 @@ function getCartTotal(cart) {
 
 
 }
-
-
-
-
-const cart = [] 
-let total = 0  
- const addToCartButtons = document.querySelectorAll('.add-to-cart') 
- addToCartButtons.forEach(button => { button.addEventListener('click', () =>  {
-   const menu = button.closest('.menu-item') 
-   const name = menu.querySelector('h3').innerHTML 
-
-   const priceText = menu.querySelector('.price').innerHTML
-    const qty = parseInt(menu.querySelector('.qty').value) 
-
-    const number = priceText.replace('€', '').replace(',', '.') 
-    const price = parseFloat(number) 
-    const product =
-     { name: name, 
-      price: price, 
-      qty: qty } 
-
-    cart.push(product) 
-    
-    cart.forEach(product => { total += product.price * product.qty }) 
-    document.getElementById('cart-total').innerText = total.toFixed(2) + '€' 
-  }) 
-  })
-
-
-
-
+ 
