@@ -1,5 +1,3 @@
-
-
 const translations = {
   el: {
     navHome: "Home",
@@ -54,9 +52,21 @@ const translations = {
     menuFlavorDesc: "Blend Arabica & Costa Rica, έντονη καφεΐνη",
     menuDecafTitle: "Decaf",
     menuDecafDesc: "100% Arabica χωρίς καφεΐνη",
+    // contact
+    contactTitle: "Επικοινωνία",
+    contactSubtitle: "Είμαστε πάντα στη διάθεσή σας για οποιαδήποτε απορία",
 
+    contactInfoTitle: "Στοιχεία Επικοινωνίας",
+    contactAddress: "Οδός Μερώπης 12, 12345 Αθήνα",
+    contactPhone: "+30 210 123 4567",
+    contactEmail: "contact@dailycafe.gr",
+    contactHours: "Δευτέρα – Κυριακή: 07:00 – 22:00",
 
-
+    contactFormTitle: "Στείλτε μας μήνυμα",
+    contactName: "Ονοματεπώνυμο",
+    contactEmailPlaceholder: "Email",
+    contactMessage: "Το μήνυμά σας...",
+    contactSend: "Αποστολή",
   },
 
   en: {
@@ -80,7 +90,8 @@ const translations = {
     featureHoursText: "From early morning until late.",
     // about us
     aboutTitle: "About Us",
-    aboutText: "At Daily Café, we believe that good coffee is an essential part of everyday life.Our journey began in 1990, with the goal of creating a warm and welcoming space for everyone who loves quality coffee.From then until today, we remain committed to quality and attention to every detail.With carefully selected coffee beans, freshly prepared beverages, and delicious snacks, we offer a complete experience from early morning until late in the evening.",
+    aboutText:
+      "At Daily Café, we believe that good coffee is an essential part of everyday life.Our journey began in 1990, with the goal of creating a warm and welcoming space for everyone who loves quality coffee.From then until today, we remain committed to quality and attention to every detail.With carefully selected coffee beans, freshly prepared beverages, and delicious snacks, we offer a complete experience from early morning until late in the evening.",
 
     //  μενού
     menuCoffeeCategory: "Coffees",
@@ -112,20 +123,39 @@ const translations = {
     menuFlavorDesc: "Arabica & Costa Rica blend, high caffeine",
     menuDecafTitle: "Decaf",
     menuDecafDesc: "100% Arabica decaffeinated",
-  }
+    // contact
+    contactTitle: "Contact",
+    contactSubtitle: "We are always available for any questions",
 
+    contactInfoTitle: "Contact Information",
+    contactAddress: "12 Meropis Street, 12345 Athens",
+    contactPhone: "+30 210 123 4567",
+    contactEmail: "contact@dailycafe.gr",
+    contactHours: "Monday – Sunday: 07:00 – 22:00",
+
+    contactFormTitle: "Send us a message",
+    contactName: "Full Name",
+    contactEmailPlaceholder: "Email",
+    contactMessage: "Your message...",
+    contactSend: "Send",
+  },
 };
-
-
 
 function setLanguage(lang) {
-  const dataKey = document.querySelectorAll("[data-key]")
-  dataKey.forEach(el => {
+  const elements = document.querySelectorAll("[data-key]");
+  elements.forEach((el) => {
     const key = el.dataset.key;
-    el.textContent = translations[lang][key];
+    const translation = translations[lang][key];
 
+    if (!translation) return;
+
+    if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+      el.placeholder = translation;
+    } else {
+      el.textContent = translation;
+    }
   });
-};
+}
 window.addEventListener("DOMContentLoaded", () => {
   const savedLang = localStorage.getItem("language");
 
@@ -136,34 +166,69 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+const langEl = document.querySelector("#lang-el");
+langEl.addEventListener("click", () => {
+  setLanguage("el");
+  localStorage.setItem("language", "el");
+});
+const langEn = document.querySelector("#lang-en");
+langEn.addEventListener("click", () => {
+  setLanguage("en");
+  localStorage.setItem("language", "en");
+});
 
+// menu
 
+let cart = [];
+document.addEventListener("DOMContentLoaded", () => {
+  const saveMenu = localStorage.getItem("cart");
+  if (saveMenu) {
+    cart = JSON.parse(saveMenu);
+  }
+  const addToCartButtons = document.querySelectorAll(".add-to-cart");
+  const cartTotalEl = document.querySelector("#cart-total");
+  cartTotalEl.textContent = getCartTotal(cart).toFixed(2) + "€";
 
-const langEl = document.querySelector('#lang-el')
-langEl.addEventListener('click', () => {
-  setLanguage('el')
-  localStorage.setItem("language", "el")
+  addToCartButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const menuItem = button.closest(".menu-item");
 
+      const name = menuItem.querySelector("h3").innerText;
+      const priceText = menuItem.querySelector(".price").innerText;
+      const qty = parseInt(menuItem.querySelector(".qty").value);
 
-})
-const langEn = document.querySelector('#lang-en')
-langEn.addEventListener('click', () => {
-  setLanguage('en')
-  localStorage.setItem("language", "en")
+      const price = parseFloat(priceText.replace("€", "").replace(",", "."));
 
+      const product = {
+        name: name,
+        price: price,
+        qty: qty,
+      };
 
-})
+      addToCart(product);
+      let saveTotal = getCartTotal(cart);
 
+      cartTotalEl.textContent = saveTotal.toFixed(2) + "€";
+    });
+  });
+});
+function addToCart(product) {
+  const existingProduct = cart.find((item) => item.name === product.name);
+  if (existingProduct) {
+    existingProduct.qty += product.qty;
+  } else {
+    cart.push(product);
+  }
 
+  const chCart = JSON.stringify(cart);
+  localStorage.setItem("cart", chCart);
+}
 
-
-
-
-
-
-
-
-
-
-
-
+function getCartTotal(cart) {
+  let total = 0;
+  for (let i = 0; i < cart.length; i++) {
+    let totalCost = cart[i].price * cart[i].qty;
+    total += totalCost;
+  }
+  return total;
+}
