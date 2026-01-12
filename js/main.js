@@ -1,5 +1,3 @@
-
-
 const translations = {
   el: {
     navHome: "Home",
@@ -69,9 +67,6 @@ const translations = {
     contactEmailPlaceholder: "Email",
     contactMessage: "Το μήνυμά σας...",
     contactSend: "Αποστολή",
-
-
-
   },
 
   en: {
@@ -95,7 +90,8 @@ const translations = {
     featureHoursText: "From early morning until late.",
     // about us
     aboutTitle: "About Us",
-    aboutText: "At Daily Café, we believe that good coffee is an essential part of everyday life.Our journey began in 1990, with the goal of creating a warm and welcoming space for everyone who loves quality coffee.From then until today, we remain committed to quality and attention to every detail.With carefully selected coffee beans, freshly prepared beverages, and delicious snacks, we offer a complete experience from early morning until late in the evening.",
+    aboutText:
+      "At Daily Café, we believe that good coffee is an essential part of everyday life.Our journey began in 1990, with the goal of creating a warm and welcoming space for everyone who loves quality coffee.From then until today, we remain committed to quality and attention to every detail.With carefully selected coffee beans, freshly prepared beverages, and delicious snacks, we offer a complete experience from early morning until late in the evening.",
 
     //  μενού
     menuCoffeeCategory: "Coffees",
@@ -142,16 +138,12 @@ const translations = {
     contactEmailPlaceholder: "Email",
     contactMessage: "Your message...",
     contactSend: "Send",
-  }
-}
-
-
-
-
+  },
+};
 
 function setLanguage(lang) {
-  const elements = document.querySelectorAll("[data-key]")
-  elements.forEach(el => {
+  const elements = document.querySelectorAll("[data-key]");
+  elements.forEach((el) => {
     const key = el.dataset.key;
     const translation = translations[lang][key];
 
@@ -162,9 +154,8 @@ function setLanguage(lang) {
     } else {
       el.textContent = translation;
     }
-
   });
-};
+}
 window.addEventListener("DOMContentLoaded", () => {
   const savedLang = localStorage.getItem("language");
 
@@ -175,107 +166,69 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-
-
-const langEl = document.querySelector('#lang-el')
-langEl.addEventListener('click', () => {
-  setLanguage('el')
-  localStorage.setItem("language", "el")
-
-
-})
-const langEn = document.querySelector('#lang-en')
-langEn.addEventListener('click', () => {
-  setLanguage('en')
-  localStorage.setItem("language", "en")
-
-
-})
-
-
-
-
+const langEl = document.querySelector("#lang-el");
+langEl.addEventListener("click", () => {
+  setLanguage("el");
+  localStorage.setItem("language", "el");
+});
+const langEn = document.querySelector("#lang-en");
+langEn.addEventListener("click", () => {
+  setLanguage("en");
+  localStorage.setItem("language", "en");
+});
 
 // menu
 
- 
-
-
-
-
 let cart = [];
 document.addEventListener("DOMContentLoaded", () => {
-
-
- 
-const saveMenu=localStorage.getItem('cart')
-if(saveMenu){
-   cart = JSON.parse(saveMenu);
-}
-const addToCartButtons = document.querySelectorAll(".add-to-cart");
+  const saveMenu = localStorage.getItem("cart");
+  if (saveMenu) {
+    cart = JSON.parse(saveMenu);
+  }
+  const addToCartButtons = document.querySelectorAll(".add-to-cart");
   const cartTotalEl = document.querySelector("#cart-total");
   cartTotalEl.textContent = getCartTotal(cart).toFixed(2) + "€";
 
-addToCartButtons.forEach(button => {
-  button.addEventListener("click", () => {
+  addToCartButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const menuItem = button.closest(".menu-item");
 
+      const name = menuItem.querySelector("h3").innerText;
+      const priceText = menuItem.querySelector(".price").innerText;
+      const qty = parseInt(menuItem.querySelector(".qty").value);
 
-    const menuItem = button.closest(".menu-item");
+      const price = parseFloat(priceText.replace("€", "").replace(",", "."));
 
+      const product = {
+        name: name,
+        price: price,
+        qty: qty,
+      };
 
-    const name = menuItem.querySelector("h3").innerText;
-    const priceText = menuItem.querySelector(".price").innerText;
-    const qty = parseInt(menuItem.querySelector(".qty").value);
+      addToCart(product);
+      let saveTotal = getCartTotal(cart);
 
-    const price = parseFloat(priceText.replace("€", "").replace(",", "."));
-
-
-    const product = {
-      name: name,
-      price: price,
-      qty: qty
-    };
-
-
- addToCart(product);
-    let saveTotal = getCartTotal(cart)
-  
-
-    cartTotalEl.textContent = saveTotal.toFixed(2) + "€";
-
-
+      cartTotalEl.textContent = saveTotal.toFixed(2) + "€";
+    });
   });
 });
-})
 function addToCart(product) {
-  const existingProduct = cart.find(item => item.name === product.name)
+  const existingProduct = cart.find((item) => item.name === product.name);
   if (existingProduct) {
-    existingProduct.qty += product.qty
-
+    existingProduct.qty += product.qty;
   } else {
-    cart.push(product)
-
+    cart.push(product);
   }
 
-const chCart= JSON.stringify(cart)
-  localStorage.setItem('cart',chCart)
-
+  const chCart = JSON.stringify(cart);
+  localStorage.setItem("cart", chCart);
 }
 
 function getCartTotal(cart) {
-  let total = 0
+  let total = 0;
   for (let i = 0; i < cart.length; i++) {
-    let totalCost = cart[i].price * cart[i].qty
-    total += totalCost
-
-
-
-
+    let totalCost = cart[i].price * cart[i].qty;
+    total += totalCost;
   }
-  return total
-
-
-
+  return total;
 }
- 
