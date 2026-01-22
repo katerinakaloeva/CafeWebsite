@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   const addToCartButtons = document.querySelectorAll(".add-to-cart");
   const cartTotalEl = document.querySelector("#cart-total");
-  cartTotalEl.textContent = getCartTotal(cart).toFixed(2) + "€";
+  cartTotalEl.textContent = getCartCount(cart);
 
   addToCartButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
       addToCart(product);
       let saveTotal = getCartTotal(cart);
 
-      cartTotalEl.textContent = saveTotal.toFixed(2) + "€";
+      cartTotalEl.textContent = getCartCount(cart) ;
     });
   });
 });
@@ -232,3 +232,84 @@ function getCartTotal(cart) {
   }
   return total;
 }
+
+function getCartCount (items) {
+  let count=0
+  for(let i=0; i<items.length; i++){
+    count +=  items[i].qty
+  }
+  return count
+}
+
+
+// cartModal
+
+ const cartModal = document.querySelector("#cartModal");
+const cartItemsEl = document.querySelector("#cart-items");
+const cartModalTotal = document.querySelector("#cart-modal-total");
+cartModal.addEventListener("show.bs.modal",()=>{
+   renderCartModal()
+})
+function renderCartModal () {
+ cartItemsEl.innerHTML= ""
+ if (cart.length===0){
+  cartItemsEl.innerHTML ="Το καλάθι είναι άδειο"
+  cartModalTotal.textContent= "0.00€"
+  return
+ }
+ cartItemsEl.innerHTML = `
+    <div class="row fw-bold border-bottom mb-2 pb-1">
+      <div class="col-5">Προϊόν</div>
+      <div class="col-3 text-center">Ποσότητα</div>
+      <div class="col-3 text-end">Τιμή</div>
+      <div class="col-1"></div>
+    </div>`;
+cart.forEach((item, index) => {
+    cartItemsEl.innerHTML += `
+      <div class="row align-items-center mb-2">
+        <div class="col-5">
+          <span>${item.name}</span>
+        </div>
+        <div class="col-3 text-center">
+          <span class="text-muted">x ${item.qty}</span>
+        </div>
+        <div class="col-3 text-end">
+          <span class="fw-medium">${(item.price * item.qty).toFixed(2)}€</span>
+        </div>
+        <div class="col-1 text-end">
+          <button class="btn btn-sm text-danger remove-item" data-index="${index}">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>`;
+  });
+
+cartModalTotal.textContent= getCartTotal(cart).toFixed(2)+ "€"
+
+const removeButtons= document.querySelectorAll(".remove-item")
+removeButtons.forEach((item) => {
+item.addEventListener("click", (event) =>{
+  const index = event.currentTarget.dataset.index
+    removeFromCart(index)
+})
+  
+
+})
+
+}
+
+function removeFromCart (index){
+  cart.splice(index,1)
+  const saveChanges= JSON.stringify(cart)
+   localStorage.setItem("cart", saveChanges)
+   
+
+
+    const cartTotal=document.querySelector("#cart-total")
+    cartTotal.textContent = getCartCount(cart) ;
+    renderCartModal();
+    
+  }
+ 
+
+

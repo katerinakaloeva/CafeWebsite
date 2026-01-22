@@ -2,220 +2,247 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-     <link rel="stylesheet" href="styles/menu.css">
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/menu.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <title>Daily Café</title>
+  <title>Daily Café</title>
 </head>
 
 <body>
-    
-      <nav class="main-navbar navbar navbar-expand-md bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="home.html">Daily Café</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                   
-                    <li class="nav-item">
-                        <a class="nav-link active color" data-key="navAbout" aria-current="page" href="about.html">about</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active color" data-key="navMenu" href="menu.html">menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active color" data-key="navContact" aria-current="page" href="contact.html">contact</a>
-                    </li>
-                </ul>
-                
-                <div class="cart-icon">
-                    <a href="#" class="cart-link">
-                        <i class="bi bi-basket-fill"></i>
-                         <span id="cart-total">0.00€</span>
-                    </a>
-                </div>
-                <div class="lang-switcher ms-3">
-                  <button id="lang-el">EL</button>
-                  <button id="lang-en">EN</button>
-              </div>
-          </div>
-      </div>
-  </nav>
-             
 
-   
+  <nav class="main-navbar navbar navbar-expand-md bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="home.html">Daily Café</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link active color" data-key="navAbout" aria-current="page" href="about.html">about</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active color" data-key="navMenu" href="menu.html">menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active color" data-key="navContact" aria-current="page" href="contact.html">contact</a>
+          </li>
+        </ul>
+
+        <div class="cart-icon">
+          <a href="#" class="cart-link" data-bs-toggle="modal" data-bs-target="#cartModal">
+            <i class="bi bi-basket-fill"></i>
+            <span id="cart-total">0.00€</span>
+          </a>
+        </div>
+        <div class="lang-switcher ms-3">
+          <button id="lang-el">EL</button>
+          <button id="lang-en">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
   <main>
 
-  <section class="menu-section" id="menu">
-    
+    <section class="menu-section" id="menu">
 
-    <div class="menu-grid">
 
-      
-      <h3 class="menu-title" data-key="menuCoffeeCategory">Καφέδες</h3>
+      <div class="menu-grid">
 
-      <div class="menu-item">
-        <h3  data-key="menuEspressoTitle">Espresso</h3>
-        <p data-key="menuEspressoDesc">Δυνατός καφές με πλούσιο άρωμα</p>
-        <span class="price">2,00€</span>
-        <div class="menu-actions">
-          <input type="number" min="1" value="1" class="qty">
-          <button class="add-to-cart">
-            <i class="bi bi-basket-fill"></i>
-          </button>
+
+        <h3 class="menu-title" data-key="menuCoffeeCategory">Καφέδες</h3>
+
+        <div class="menu-item">
+          <h3 data-key="menuEspressoTitle">Espresso</h3>
+          <p data-key="menuEspressoDesc">Δυνατός καφές με πλούσιο άρωμα</p>
+          <span class="price">2,00€</span>
+          <div class="menu-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="add-to-cart">
+              <i class="bi bi-basket-fill"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="menu-item">
-        <h3 data-key="menuFreddoEspressoTitle">Freddo Espresso</h3>
-        <p data-key="menuFreddoEspressoDesc">Κρύος καφές</p>
-        <span class="price">2,50€</span>
-        <div class="menu-actions">
-          <input type="number" min="1" value="1" class="qty">
-          <button class="add-to-cart">
-            <i class="bi bi-basket-fill"></i>
-          </button>
+        <div class="menu-item">
+          <h3 data-key="menuFreddoEspressoTitle">Freddo Espresso</h3>
+          <p data-key="menuFreddoEspressoDesc">Κρύος καφές</p>
+          <span class="price">2,50€</span>
+          <div class="menu-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="add-to-cart">
+              <i class="bi bi-basket-fill"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="menu-item">
-        <h3 data-key="menuGreekCoffeeTitle">Ελληνικός</h3>
-        <p data-key="menuGreekCoffeeDesc">Παραδοσιακός ελληνικός καφές</p>
-        <span class="price">1,80€ / 2,20€</span>
-        <div class="menu-actions">
-          <input type="number" min="1" value="1" class="qty">
-          <button class="add-to-cart">
-            <i class="bi bi-basket-fill"></i>
-          </button>
+        <div class="menu-item">
+          <h3 data-key="menuGreekCoffeeTitle">Ελληνικός</h3>
+          <p data-key="menuGreekCoffeeDesc">Παραδοσιακός ελληνικός καφές</p>
+          <span class="price"> 2,20€</span>
+          <div class="menu-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="add-to-cart">
+              <i class="bi bi-basket-fill"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="menu-item">
-        <h3 data-key="menuAmericanoTitle">Αμερικάνο</h3>
-        <p data-key="menuAmericanoDesc">Απαλός καφές</p>
-        <span class="price">2,20€</span>
-        <div class="menu-actions">
-          <input type="number" min="1" value="1" class="qty">
-          <button class="add-to-cart">
-            <i class="bi bi-basket-fill"></i>
-          </button>
+        <div class="menu-item">
+          <h3 data-key="menuAmericanoTitle">Αμερικάνο</h3>
+          <p data-key="menuAmericanoDesc">Απαλός καφές</p>
+          <span class="price">2,20€</span>
+          <div class="menu-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="add-to-cart">
+              <i class="bi bi-basket-fill"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="menu-item">
-        <h3 data-key="menuFreddoCappuccinoTitle">Freddo Cappuccino</h3>
-        <p data-key="menuFreddoCappuccinoDesc">Κρύος καφές</p>
-        <span class="price">2,80€</span>
-        <div class="menu-actions">
-          <input type="number" min="1" value="1" class="qty">
-          <button class="add-to-cart">
-            <i class="bi bi-basket-fill"></i>
-          </button>
+        <div class="menu-item">
+          <h3 data-key="menuFreddoCappuccinoTitle">Freddo Cappuccino</h3>
+          <p data-key="menuFreddoCappuccinoDesc">Κρύος καφές</p>
+          <span class="price">2,80€</span>
+          <div class="menu-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="add-to-cart">
+              <i class="bi bi-basket-fill"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="menu-item">
-        <h3 data-key="menuCappuccinoTitle">Cappuccino</h3>
-        <p data-key="menuCappuccinoDesc">Αφρόγαλα & espresso</p>
-        <span class="price">2,20€ / 2,60€</span>
-        <div class="menu-actions">
-          <input type="number" min="1" value="1" class="qty">
-          <button class="add-to-cart">
-            <i class="bi bi-basket-fill"></i>
-          </button>
+        <div class="menu-item">
+          <h3 data-key="menuCappuccinoTitle">Cappuccino</h3>
+          <p data-key="menuCappuccinoDesc">Αφρόγαλα & espresso</p>
+          <span class="price"> 2,60€</span>
+          <div class="menu-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="add-to-cart">
+              <i class="bi bi-basket-fill"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="menu-item">
-        <h3 data-key="menuLatteTitle">Latte</h3>
-        <p data-key="menuLatteDesc">Απαλός καφές με γάλα</p>
-        <span class="price">2,20€</span>
-        <div class="menu-actions">
-          <input type="number" min="1" value="1" class="qty">
-          <button class="add-to-cart">
-            <i class="bi bi-basket-fill"></i>
-          </button>
+        <div class="menu-item">
+          <h3 data-key="menuLatteTitle">Latte</h3>
+          <p data-key="menuLatteDesc">Απαλός καφές με γάλα</p>
+          <span class="price">2,20€</span>
+          <div class="menu-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="add-to-cart">
+              <i class="bi bi-basket-fill"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="menu-item">
-        <h3 data-key="menuJuiceTitle">Φυσικός Χυμός</h3>
-        <p data-key="menuJuiceDesc">Με φρούτα εποχής</p>
-        <span class="price">2,50€</span>
-        <div class="menu-actions">
-          <input type="number" min="1" value="1" class="qty">
-          <button class="add-to-cart">
-            <i class="bi bi-basket-fill"></i>
-          </button>
+        <div class="menu-item">
+          <h3 data-key="menuJuiceTitle">Φυσικός Χυμός</h3>
+          <p data-key="menuJuiceDesc">Με φρούτα εποχής</p>
+          <span class="price">2,50€</span>
+          <div class="menu-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="add-to-cart">
+              <i class="bi bi-basket-fill"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-     
-      <h3 class="menu-title"  data-key="menuCoffeeShopCategory">Καφεκοπτείο</h3>
 
-      <div class="menu-item">
-        <h3 data-key="menuPremiumTitle">Premium</h3>
-        <p data-key="menuPremiumDesc">100% Arabica – σοκολάτα, ξηροί καρποί, μπισκότο</p>
-        <span class="price">5,00€</span>
-        <div class="menu-actions">
-          <input type="number" min="1" value="1" class="qty">
-          <button class="add-to-cart">
-            <i class="bi bi-basket-fill"></i>
-          </button>
+        <h3 class="menu-title" data-key="menuCoffeeShopCategory">Καφεκοπτείο</h3>
+
+        <div class="menu-item">
+          <h3 data-key="menuPremiumTitle">Premium</h3>
+          <p data-key="menuPremiumDesc">100% Arabica – σοκολάτα, ξηροί καρποί, μπισκότο</p>
+          <span class="price">5,00€</span>
+          <div class="menu-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="add-to-cart">
+              <i class="bi bi-basket-fill"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="menu-item">
-        <h3 data-key="menuElegantTitle">Elegant</h3>
-        <p data-key="menuElegantDesc">Arabica με κακάο, καστανή ζάχαρη και αποξηραμένα φρούτα</p>
-        <span class="price">5,00€</span>
-        <div class="menu-actions">
-          <input type="number" min="1" value="1" class="qty">
-          <button class="add-to-cart">
-            <i class="bi bi-basket-fill"></i>
-          </button>
+        <div class="menu-item">
+          <h3 data-key="menuElegantTitle">Elegant</h3>
+          <p data-key="menuElegantDesc">Arabica με κακάο, καστανή ζάχαρη και αποξηραμένα φρούτα</p>
+          <span class="price">5,00€</span>
+          <div class="menu-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="add-to-cart">
+              <i class="bi bi-basket-fill"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="menu-item">
-        <h3 data-key="menuFlavorTitle">Flavor</h3>
-        <p data-key="menuFlavorDesc">Blend Arabica & Costa Rica, έντονη καφεΐνη</p>
-        <span class="price">5,50€</span>
-        <div class="menu-actions">
-          <input type="number" min="1" value="1" class="qty">
-          <button class="add-to-cart">
-            <i class="bi bi-basket-fill"></i>
-          </button>
+        <div class="menu-item">
+          <h3 data-key="menuFlavorTitle">Flavor</h3>
+          <p data-key="menuFlavorDesc">Blend Arabica & Costa Rica, έντονη καφεΐνη</p>
+          <span class="price">5,50€</span>
+          <div class="menu-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="add-to-cart">
+              <i class="bi bi-basket-fill"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="menu-item">
-        <h3 data-key="menuDecafTitle">Decaf</h3>
-        <p data-key="menuDecafDesc">100% Arabica χωρίς καφεΐνη</p>
-        <span class="price">5,00€</span>
-        <div class="menu-actions">
-          <input type="number" min="1" value="1" class="qty">
-          <button class="add-to-cart">
-            <i class="bi bi-basket-fill"></i>
-          </button>
+        <div class="menu-item">
+          <h3 data-key="menuDecafTitle">Decaf</h3>
+          <p data-key="menuDecafDesc">100% Arabica χωρίς καφεΐνη</p>
+          <span class="price">5,00€</span>
+          <div class="menu-actions">
+            <input type="number" min="1" value="1" class="qty">
+            <button class="add-to-cart">
+              <i class="bi bi-basket-fill"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <p class="footer-text">© 2026 Daily Café</p>
+  </footer>
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Η Παραγγελία σας</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <div id="cart-items"></div>
+          <hr>
+          <h5 class="text-end">
+            Σύνολο: <span id="cart-modal-total">0.00€</span>
+          </h5>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Κλείσιμο</button>
+          <button class="btn btn-success">Ολοκλήρωση Παραγγελίας</button>
+        </div>
+
+      </div>
     </div>
-  </section>
+  </div>
 
-</main>
-
-
-    <footer class="site-footer">
-        <p class="footer-text">© 2026 Daily Café</p>
-    </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
