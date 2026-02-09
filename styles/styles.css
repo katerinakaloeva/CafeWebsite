@@ -205,27 +205,19 @@
 
 /* footer */
 .site-footer {
- background: #2e2e2e;
-  color: #ccc;
-  text-align: center;
-  padding: 20px;
-  margin-top: 0;
-  
-}
-
-.footer-brand {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 2px;
-  letter-spacing: 1px;
+    background-color: #2e2e2e;
+    color: white;
+    text-align: center;
+    padding: 12px ;
+    margin-top: 0;
+    
 }
 
 .footer-text {
-  margin: 0;
-  font-size: 14px;
-  opacity: 0.8;
+    margin: 0;
+    font-size: 14px;
 }
+
 
 /* media   */
  

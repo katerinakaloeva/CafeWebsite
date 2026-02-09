@@ -1,3 +1,5 @@
+
+"use strict";
 const translations = {
   el: {
     navHome: "Home",
@@ -141,6 +143,7 @@ const translations = {
   },
 };
 
+
 function setLanguage(lang) {
   const elements = document.querySelectorAll("[data-key]");
   elements.forEach((el) => {
@@ -212,6 +215,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+
+
 function addToCart(product) {
   const existingProduct = cart.find((item) => item.name === product.name);
   if (existingProduct) {
@@ -309,7 +316,8 @@ function removeFromCart (index){
     cartTotal.textContent = getCartCount(cart) ;
     renderCartModal();
     
-  }
+  }     
  
 
 
+ 
