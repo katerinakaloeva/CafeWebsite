@@ -1,4 +1,4 @@
-/* main navigation */
+
  
 
 body {
@@ -101,17 +101,17 @@ body {
   
 }
  
-/* Main container */
+
 .contact-container {
  max-width: 1100px;
-  margin: 60px auto 100px auto; /* Αυξήσαμε το κάτω margin στα 100px */
+  margin: 60px auto 100px auto; 
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
 
-/* Contact info box */
+
 .contact-info {
   background: #fdfcfc9f;
   padding: 40px;
@@ -137,7 +137,7 @@ body {
   color: #6f4e37;
 }
 
-/* Contact form box */
+
 .contact-form {
   background: #fff;
   padding: 40px;

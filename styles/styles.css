@@ -1,4 +1,4 @@
-/* main navigation */
+ 
  
 .main-navbar {
   background-color:  #4d280d !important;
@@ -69,7 +69,7 @@
   
 }
 
-/* HEADER */
+ 
 .cta-section {
     position: relative;
   overflow: visible;
@@ -178,7 +178,7 @@
   transform: translateY(-2px);
   
 }
- /* main */
+ 
 .features {
   background: #f4f1ee;
   padding: 60px 20px 40px;
@@ -219,12 +219,12 @@
 }
 
 
-/* media   */
+ 
  
 
 @media (max-width: 768px) {
 
-  /* NAV */
+ 
   .navbar-brand {
     font-size: 20px;
   }
@@ -274,7 +274,7 @@
 
 
 
-  /* HERO */
+ 
   .site-title {
     font-size: 32px;
     letter-spacing: 2px;
@@ -286,10 +286,10 @@
   }
 
   .hero-overlay {
-    padding-top: 70px; /* απλό override */
+    padding-top: 70px; 
   }
 
-  /* CTA BOX */
+  
   .cta-overlay {
     bottom: 30px;
     padding: 20px;
@@ -309,7 +309,7 @@
     font-size: 14px;
   }
 
-  /* FEATURES */
+ 
   .features {
     padding: 50px 15px 30px;
   }
@@ -326,7 +326,7 @@
     font-size: 14px;
   }
 
-  /* FOOTER */
+ 
   .footer-brand {
     font-size: 16px;
   }

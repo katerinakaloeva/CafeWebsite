@@ -319,5 +319,41 @@ function removeFromCart (index){
   }     
  
 
+// contact form
 
+const contactForm = document.querySelector("#contact-form");
+
+contactForm.addEventListener("submit", async (event)=>{
+event.preventDefault();
+
+const submitBtn=document.querySelector("#submit-btn");
+submitBtn.disabled = true;
+const data= new FormData(contactForm);
+try {
+  const response = await fetch (contactForm.action, {
+    method: "POST",
+    body: data,
+    headers: { 
+        'Accept': 'application/json' 
+    }
+  })
+  if(response.ok) {
+    const successModalElement = document.getElementById('successModal');
+      const modalInstance = new bootstrap.Modal(successModalElement);
+      modalInstance.show();
+  
+      contactForm.reset()
+
+}
+}
+catch (error){
+  alert("Ωχ κάτι πήγε στραβά με την αποστολή. Δοκιμαστε ξανά!")
+
+} 
+finally {
+  submitBtn.disabled = false;
+}
+
+
+})
  
