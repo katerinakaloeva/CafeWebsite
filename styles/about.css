@@ -76,8 +76,8 @@
 .about-section {
     background:
         linear-gradient(
-            rgba(0, 0, 0, 0.589),
-            rgba(0, 0, 0, 0.637)
+            rgba(0, 0, 0, 0.623),
+            rgba(0, 0, 0, 0.411)
         ),
         url("https://img.freepik.com/free-photo/top-view-delicious-coffee-beans-arrangement_23-2150691447.jpg?semt=ais_user_personalization&w=740&q=80");
         ;
@@ -92,12 +92,12 @@
  
  
 .content-container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
     color: #e2e2e2;
-   background: rgba(0, 0, 0, 0.274);
-    border-radius: 20px;
+   background: rgba(0, 0, 0, 0.315);
+    border-radius: 30px;
     
    
    
